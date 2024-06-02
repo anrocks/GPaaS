@@ -1,7 +1,8 @@
 import "./App.css";
+import { AppConfig } from "./AppConfig";
 
 function App() {
-  return <h1>GPaaS</h1>;
+  return <AppConfig />;
 }
 
 export default App;
