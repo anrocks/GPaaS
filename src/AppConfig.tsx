@@ -11,7 +11,13 @@ export const AppConfig = () => {
   return (
     <ThemeProvider theme={theme}>
       <AxiosHandler>
-        <SnackbarProvider maxSnack={3}>
+        <SnackbarProvider
+          maxSnack={3}
+          anchorOrigin={{
+            vertical: "bottom", // Snackbars appear at the bottom of the screen
+            horizontal: "right", // Snackbars appear on the right side of the screen
+          }}
+        >
           <Typography variant="h1" color="primary">
             <GetRoutes />
           </Typography>
