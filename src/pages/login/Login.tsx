@@ -1,18 +1,18 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useCallback } from "react";
+import { useForm, Controller } from "react-hook-form";
 import {
   TextField,
   Button,
   Typography,
   Container,
-  FormControlLabel,
   Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import LockIcon from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 // Define Zod schema for form validation
 const schema = z.object({
@@ -22,22 +22,47 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const Login: React.FC = () => {
+const Login = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
   const [rememberMe, setRememberMe] = useState(false);
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Implement your authentication logic here
+
+  const simulateApiCall = (__data: any) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Randomly resolve or reject the promise to simulate API behavior
+        const isSuccess = Math.random() > 0.5;
+        if (isSuccess) {
+          resolve("Login successful!");
+        } else {
+          reject("Login failed. Please try again.");
+        }
+      }, 1500); // Simulate network delay
+    });
   };
-  const handleRememberMeChange = () => {
-    setRememberMe(!rememberMe);
-  };
+
+  const onSubmit = useCallback(
+    async (data: FormData) => {
+      try {
+        const response = await simulateApiCall(data);
+        enqueueSnackbar(response as string, { variant: "success" });
+      } catch (error) {
+        enqueueSnackbar(error as string, { variant: "error" });
+      }
+    },
+    [enqueueSnackbar]
+  );
+
+  const handleRememberMeChange = useCallback(() => {
+    setRememberMe((prev) => !prev);
+  }, []);
+
   return (
     <Container maxWidth="sm">
       <Typography
@@ -60,27 +85,41 @@ const Login: React.FC = () => {
         Sign in
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          label="Email"
-          type="email"
-          {...register("email")}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          style={{ marginBottom: "20px" }}
+        <Controller
+          name="email"
+          control={control}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              {...field}
+              label="Email"
+              type="email"
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              style={{ marginBottom: "20px" }}
+            />
+          )}
         />
-        <TextField
-          label="Password"
-          type="password"
-          {...register("password")}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          style={{ marginBottom: "20px" }}
+        <Controller
+          name="password"
+          control={control}
+          defaultValue=""
+          render={({ field, fieldState }) => (
+            <TextField
+              {...field}
+              label="Password"
+              type="password"
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              style={{ marginBottom: "20px" }}
+            />
+          )}
         />
         <FormControlLabel
           control={

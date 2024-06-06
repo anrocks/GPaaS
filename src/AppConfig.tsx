@@ -5,14 +5,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import { SnackbarProvider } from "notistack";
 
 export const AppConfig = () => {
   return (
     <ThemeProvider theme={theme}>
       <AxiosHandler>
-        <Typography variant="h1" color="primary">
-          <GetRoutes />
-        </Typography>
+        <SnackbarProvider maxSnack={3}>
+          <Typography variant="h1" color="primary">
+            <GetRoutes />
+          </Typography>
+        </SnackbarProvider>
       </AxiosHandler>
     </ThemeProvider>
   );
