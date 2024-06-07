@@ -130,14 +130,20 @@ const Login = () => {
             />
           }
           label="Remember Me"
-          style={{ marginBottom: "20px" }}
+          style={{
+            marginBottom: "20px",
+            display: "flex",
+            justifyContent: "left",
+          }}
         />
         <Button
           type="submit"
           variant="contained"
           color="primary"
           fullWidth
-          style={{ marginBottom: "20px" }}
+          style={{
+            marginBottom: "20px",
+          }}
         >
           Sign in
         </Button>
