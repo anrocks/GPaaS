@@ -6,7 +6,7 @@ import Dashboard from './pages/dashboard/Dashboard'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import { SnackbarProvider } from 'notistack'
-import ForgetPassword from './pages/forgotPassword/ForgotPassword1'
+import ForgetPassword from './pages/forgotPassword/ForgotPassword'
 
 export const AppConfig = () => {
   return (
