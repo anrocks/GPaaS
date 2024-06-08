@@ -19,9 +19,7 @@ export const AppConfig = () => {
             horizontal: 'right', // Snackbars appear on the right side of the screen
           }}
         >
-          <Typography variant="h1" color="primary">
-            <GetRoutes />
-          </Typography>
+          <GetRoutes />
         </SnackbarProvider>
       </AxiosHandler>
     </ThemeProvider>
