@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { SnackbarProvider } from "notistack";
+import ForgetPassword from "./pages/forgotPassword/ForgotPassword";
 
 export const AppConfig = () => {
   return (
@@ -34,6 +35,7 @@ export const GetRoutes = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
       </Routes>
     </Router>
   );

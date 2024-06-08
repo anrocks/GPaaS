@@ -9,48 +9,24 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import LockIcon from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
 import { useSnackbar } from "notistack";
-
-// Define Zod schema for form validation
-const schema = z.object({
-  email: z.string().email("Invalid email format"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
-
-type FormData = z.infer<typeof schema>;
+import * as styles from "./Login.styles";
+import { ILoginForm, LoginForm } from "../../api/models/ILogin";
+import { loginPost } from "../../api/endpoints/login";
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
+  const { control, handleSubmit } = useForm<ILoginForm>({
+    resolver: zodResolver(LoginForm),
   });
   const [rememberMe, setRememberMe] = useState(false);
 
-  const simulateApiCall = (__data: any) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Randomly resolve or reject the promise to simulate API behavior
-        const isSuccess = Math.random() > 0.5;
-        if (isSuccess) {
-          resolve("Login successful!");
-        } else {
-          reject("Login failed. Please try again.");
-        }
-      }, 1500); // Simulate network delay
-    });
-  };
-
   const onSubmit = useCallback(
-    async (data: FormData) => {
+    async (data: ILoginForm) => {
       try {
-        const response = await simulateApiCall(data);
+        const response = await loginPost(data);
         enqueueSnackbar(response as string, { variant: "success" });
       } catch (error) {
         enqueueSnackbar(error as string, { variant: "error" });
@@ -59,31 +35,17 @@ const Login = () => {
     [enqueueSnackbar]
   );
 
-  const handleRememberMeChange = useCallback(() => {
+  const handleRememberMeChange = () => {
+    console.log("Called", rememberMe);
     setRememberMe((prev) => !prev);
-  }, []);
+  };
 
   return (
     <Container maxWidth="sm">
-      <Typography
-        variant="h4"
-        gutterBottom
-        style={{
-          color: "violet",
-          textAlign: "center",
-          margin: "20px 0",
-        }}
-      >
-        {<LockIcon />}
+      <Typography variant="h4" gutterBottom style={styles.icon}>
+        <LockIcon />
       </Typography>
-      <Typography
-        style={{
-          textAlign: "center",
-          marginBottom: "20px",
-        }}
-      >
-        Sign in
-      </Typography>
+      <Typography style={styles.title}>Sign in</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="email"
@@ -130,11 +92,7 @@ const Login = () => {
             />
           }
           label="Remember Me"
-          style={{
-            marginBottom: "20px",
-            display: "flex",
-            justifyContent: "left",
-          }}
+          style={styles.checkbox}
         />
         <Button
           type="submit"
@@ -153,7 +111,7 @@ const Login = () => {
             justifyContent: "left",
           }}
         >
-          <Link to="/forgot-password">Forgot Password?</Link>
+          <Link to="/forget-password">Forgot Password?</Link>
         </Typography>
         <Typography
           style={{
