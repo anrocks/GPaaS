@@ -1,16 +1,16 @@
 import './App.css'
 import { AppConfig } from './AppConfig'
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-// const queryClient = new QueryClient()
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    // <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <AppConfig />
-    //    <ReactQueryDevtools position="right" initialIsOpen={false} />
-    //  </QueryClientProvider>
+      <ReactQueryDevtools position="right" initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
