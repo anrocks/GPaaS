@@ -10,7 +10,9 @@ import {
   ForgotPasswordForm,
 } from '../../api/models/IForgotPassword'
 import { forgotpasswordPost } from '../../api/endpoints/forgotpassword'
+import { useTranslation } from 'react-i18next'
 const ForgotPassword = () => {
+  const { t } = useTranslation()
   const { enqueueSnackbar } = useSnackbar()
   const { control, handleSubmit } = useForm<IForgotPasswordForm>({
     resolver: zodResolver(ForgotPasswordForm),
@@ -29,14 +31,13 @@ const ForgotPassword = () => {
   )
   return (
     <Container>
-      <Typography style={style.title}>Forgot your Password</Typography>
-      <Typography style={style.para}>
-        Please enter the email address you'd like your password <br />
-        reset information sent to
+      <Typography style={style.title}>{t('ForgotPassword.title')}</Typography>
+      <Typography style={style.para}>{t('ForgotPassword.para')} <br />
+        {t('ForgotPassword.para2')}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography style={{ marginRight: '400px' }}>
-          Enter email address
+          {t('ForgotPassword.label')}
         </Typography>
         <Controller
           name="email"
@@ -45,7 +46,7 @@ const ForgotPassword = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Email"
+              label={t('general.email')}
               type="email"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -65,11 +66,11 @@ const ForgotPassword = () => {
             marginBottom: '20px',
             fontSize: '20px',
           }}
-        >
-          Request reset link
+        >{t('ForgotPassword.button')}
+
         </Button>
         <Typography style={style.link}>
-          <Link to="/login">Back To Login</Link>
+          <Link to="/login">{t('ForgotPassword.BackToLogin')}</Link>
         </Typography>
       </form>
     </Container>

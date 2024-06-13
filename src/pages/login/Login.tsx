@@ -15,8 +15,10 @@ import { useSnackbar } from 'notistack'
 import * as styles from './Login.styles'
 import { ILoginForm, LoginForm } from '../../api/models/ILogin'
 import { loginPost } from '../../api/endpoints/login'
+import { useTranslation } from 'react-i18next'
 
 const Login = () => {
+  const { t } = useTranslation()
   const { enqueueSnackbar } = useSnackbar()
   const { control, handleSubmit } = useForm<ILoginForm>({
     resolver: zodResolver(LoginForm),
@@ -45,7 +47,7 @@ const Login = () => {
       <Typography variant="h4" gutterBottom style={styles.icon}>
         <LockIcon />
       </Typography>
-      <Typography style={styles.title}>Sign in</Typography>
+      <Typography style={styles.title}>{t('login.title')}</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="email"
@@ -54,7 +56,7 @@ const Login = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Email"
+              label={t('general.Email')}
               type="email"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -72,7 +74,7 @@ const Login = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Password"
+              label={t('general.password')}
               type="password"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -91,7 +93,7 @@ const Login = () => {
               color="primary"
             />
           }
-          label="Remember Me"
+          label={t('login.RememberMe')}
           style={styles.checkbox}
         />
         <Button
@@ -103,7 +105,7 @@ const Login = () => {
             marginBottom: '20px',
           }}
         >
-          Sign in
+          {t('login.Signin')}
         </Button>
         <Typography
           style={{
@@ -111,7 +113,7 @@ const Login = () => {
             justifyContent: 'left',
           }}
         >
-          <Link to="/forget-password">Forgot Password?</Link>
+          <Link to="/forget-password">{t('login.ForgotPassword')}</Link>
         </Typography>
         <Typography
           style={{
@@ -119,7 +121,7 @@ const Login = () => {
             marginTop: '-20px',
           }}
         >
-          Don't have an account? <Link to="/register">Sign Up</Link>
+          {t('login.Account')}<Link to="/register">{t('login.SignUp')}</Link>
         </Typography>
       </form>
     </Container>
