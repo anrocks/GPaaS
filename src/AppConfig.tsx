@@ -1,4 +1,4 @@
-import { ThemeProvider, Typography } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import theme from './theme/Theme'
 import { AxiosHandler } from './api/axios'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
