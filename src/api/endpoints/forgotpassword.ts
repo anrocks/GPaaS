@@ -1,4 +1,4 @@
-export const loginPost = (__data: any) => {
+export const forgotpasswordPost = (__data: any) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // Randomly resolve or reject the promise to simulate API behavior

@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useState, useCallback } from 'react'
+import { useForm, Controller } from 'react-hook-form'
 import {
   TextField,
   Button,
@@ -7,38 +7,38 @@ import {
   Container,
   Checkbox,
   FormControlLabel,
-} from "@mui/material";
-import { zodResolver } from "@hookform/resolvers/zod";
-import LockIcon from "@mui/icons-material/Lock";
-import { Link } from "react-router-dom";
-import { useSnackbar } from "notistack";
-import * as styles from "./Login.styles";
-import { ILoginForm, LoginForm } from "../../api/models/ILogin";
-import { loginPost } from "../../api/endpoints/login";
+} from '@mui/material'
+import { zodResolver } from '@hookform/resolvers/zod'
+import LockIcon from '@mui/icons-material/Lock'
+import { Link } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
+import * as styles from './Login.styles'
+import { ILoginForm, LoginForm } from '../../api/models/ILogin'
+import { loginPost } from '../../api/endpoints/login'
 
 const Login = () => {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar()
   const { control, handleSubmit } = useForm<ILoginForm>({
     resolver: zodResolver(LoginForm),
-  });
-  const [rememberMe, setRememberMe] = useState(false);
+  })
+  const [rememberMe, setRememberMe] = useState(false)
 
   const onSubmit = useCallback(
     async (data: ILoginForm) => {
       try {
-        const response = await loginPost(data);
-        enqueueSnackbar(response as string, { variant: "success" });
+        const response = await loginPost(data)
+        enqueueSnackbar(response as string, { variant: 'success' })
       } catch (error) {
-        enqueueSnackbar(error as string, { variant: "error" });
+        enqueueSnackbar(error as string, { variant: 'error' })
       }
     },
     [enqueueSnackbar]
-  );
+  )
 
   const handleRememberMeChange = () => {
-    console.log("Called", rememberMe);
-    setRememberMe((prev) => !prev);
-  };
+    console.log('Called', rememberMe)
+    setRememberMe((prev) => !prev)
+  }
 
   return (
     <Container maxWidth="sm">
@@ -61,7 +61,7 @@ const Login = () => {
               fullWidth
               margin="normal"
               variant="outlined"
-              style={{ marginBottom: "20px" }}
+              style={{ marginBottom: '20px' }}
             />
           )}
         />
@@ -79,7 +79,7 @@ const Login = () => {
               fullWidth
               margin="normal"
               variant="outlined"
-              style={{ marginBottom: "20px" }}
+              style={{ marginBottom: '20px' }}
             />
           )}
         />
@@ -100,30 +100,30 @@ const Login = () => {
           color="primary"
           fullWidth
           style={{
-            marginBottom: "20px",
+            marginBottom: '20px',
           }}
         >
           Sign in
         </Button>
         <Typography
           style={{
-            display: "flex",
-            justifyContent: "left",
+            display: 'flex',
+            justifyContent: 'left',
           }}
         >
           <Link to="/forget-password">Forgot Password?</Link>
         </Typography>
         <Typography
           style={{
-            textAlign: "right",
-            marginTop: "-20px",
+            textAlign: 'right',
+            marginTop: '-20px',
           }}
         >
           Don't have an account? <Link to="/register">Sign Up</Link>
         </Typography>
       </form>
     </Container>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
