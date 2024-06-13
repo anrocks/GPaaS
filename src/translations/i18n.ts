@@ -2,12 +2,16 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 // Import translation files
-import { translationEN } from './english'
+import en from './english'
+import hindi from './hindi'
 
 // Define the resources
 const resources = {
   en: {
-    translation: translationEN,
+    translation: en,
+  },
+  hi: {
+    translation: hindi,
   },
 }
 

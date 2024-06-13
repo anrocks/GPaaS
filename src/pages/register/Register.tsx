@@ -12,10 +12,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { registerPost } from '../../api/endpoints/register'
 import { dRegisterForm, RegisterForm } from '../../api/models/Register'
 import { useSnackbar } from 'notistack'
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useTransition } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 const Register = () => {
+  const { t } = useTranslation()
   const { enqueueSnackbar } = useSnackbar()
   const { control, handleSubmit } = useForm<dRegisterForm>({
     resolver: zodResolver(RegisterForm),
@@ -42,7 +44,7 @@ const Register = () => {
 
   return (
     <Container maxWidth="sm">
-      <Typography style={style.title}>CREATE ACCOUNT</Typography>
+      <Typography style={style.title}>{t('register.title')}</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="name"
@@ -51,7 +53,7 @@ const Register = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Name"
+              label={t('general.name')}
               type="name"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -69,7 +71,7 @@ const Register = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Email"
+              label={t('general.email')}
               type="email"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -87,7 +89,7 @@ const Register = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Password"
+              label={t('general.password')}
               type="password"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -122,9 +124,9 @@ const Register = () => {
           }
           label={
             <>
-              I agree all statements in{' '}
+              {t('register.iAgree')}
               <span style={{ textDecoration: 'underline' }}>
-                Terms of Service
+                t('register.termAndCondition')
               </span>
             </>
           }
