@@ -7,6 +7,7 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import { SnackbarProvider } from 'notistack'
 import ForgetPassword from './pages/forgotPassword/ForgotPassword'
+import ResetPassword from './pages/resetPassword/ResetPassword'
 
 export const AppConfig = () => {
   return (
@@ -34,6 +35,7 @@ export const GetRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
       </Routes>
     </Router>
   )
