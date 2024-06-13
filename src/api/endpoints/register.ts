@@ -6,7 +6,7 @@ export const registerPost = (__data: any) => {
         if (isSuccess) {
           resolve("Account create successful!");
         } else {
-          reject("Register failed. Please try again.");
+          reject("Sign up failed. Please try again.");
         }
       }, 1500); // Simulate network delay
     });
