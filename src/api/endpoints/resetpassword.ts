@@ -4,9 +4,9 @@ export const ResetPost = (__data: any) => {
         // Randomly resolve or reject the promise to simulate API behavior
         const isSuccess = Math.random() > 0.5;
         if (isSuccess) {
-          resolve("Login successful!");
+          resolve("ResetPassword successful!");
         } else {
-          reject("Login failed. Please try again.");
+          reject("password failed. Please try again.");
         }
       }, 1500); // Simulate network delay
     });
