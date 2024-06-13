@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <Container maxWidth="sm">
-      <Typography style={style.title}>{t('register.title')}</Typography>
+      <Typography style={style.title}><b>{t('register.title')}</b></Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="name"
@@ -107,7 +107,7 @@ const Register = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Repeat your password"
+              label={t('general.repeatpassword')}
               type="repeatPassword"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -126,7 +126,7 @@ const Register = () => {
             <>
               {t('register.iAgree')}
               <span style={{ textDecoration: 'underline' }}>
-                t('register.termAndCondition')
+                {t('register.termAndCondition')}
               </span>
             </>
           }
@@ -139,9 +139,24 @@ const Register = () => {
           fullWidth
           style={{
             marginBottom: '20px',
+            width: '40%',
+            marginRight: '100px',
           }}
         >
-          Sign up
+          {t('register.signup')}
+        </Button>
+        
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          style={{
+            marginBottom: '20px',
+            width: '40%',
+          }}
+        >
+         {t('general.cancel')} 
         </Button>
         <Typography
           style={{
@@ -149,9 +164,9 @@ const Register = () => {
             marginTop: '20px',
           }}
         >
-          Have already an account?{' '}
+          {t('register.account')}
           <Link to="/login">
-            <b>Login here</b>
+            <b>{t('register.login')}</b>
           </Link>
         </Typography>
       </form>

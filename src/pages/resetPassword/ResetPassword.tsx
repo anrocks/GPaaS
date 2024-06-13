@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { ResetForm, ResetPForm } from '../../api/models/ResetPassword'
 import { ResetPost } from '../../api/endpoints/resetpassword'
 import { useCallback } from 'react'
+import { t } from 'i18next'
 
 const ResetPassword = () => {
   const { enqueueSnackbar } = useSnackbar()
@@ -35,7 +36,7 @@ const ResetPassword = () => {
           gutterBottom
           style={{ color: 'black' }}
         >
-          User Details
+          {t('resetPassword.title')}
         </Typography>
       </Box>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +47,7 @@ const ResetPassword = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="New Password"
+              label={t('general.newpassword')}
               type="password"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -64,7 +65,7 @@ const ResetPassword = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="Confirm New Password"
+              label={t('general.confirmp')}
               type="password"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -82,10 +83,23 @@ const ResetPassword = () => {
           fullWidth
           style={{
             marginBottom: '20px',
-            width: '50%',
+            width: '40%',
+            marginRight: '100px',
           }}
         >
-          Continue
+          {t('resetPassword.continue')}
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          style={{
+            marginBottom: '20px',
+            width: '40%',
+          }}
+        >
+           {t('general.cancel')}
         </Button>
       </form>
     </Container>
