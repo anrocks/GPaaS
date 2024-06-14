@@ -26,6 +26,7 @@ const translationEN = {
     name: 'Name',
     email: 'Email',
     password: 'Password',
+    Cancel: 'Cancel',
   },
 }
 

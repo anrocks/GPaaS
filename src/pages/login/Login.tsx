@@ -56,7 +56,7 @@ const Login = () => {
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label={t('general.Email')}
+              label={t('general.email')}
               type="email"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -103,22 +103,29 @@ const Login = () => {
           fullWidth
           style={{
             marginBottom: '20px',
+            width: '40%',
+            marginRight: '150px',
+            right: '50px',
           }}
         >
           {t('login.Signin')}
         </Button>
         <Button
+          type="submit"
           variant="contained"
-          color="secondary"
+          color="primary"
           fullWidth
           style={{
+            bottom: '55px',
             marginBottom: '20px',
+            width: '40%',
+            marginLeft: '100px',
+            left: '60px',
+
           }}
-
         >
-          Cancel
+          {t('general.Cancel')}
         </Button>
-
         <Typography
           style={{
             display: 'flex',
@@ -136,7 +143,7 @@ const Login = () => {
           {t('login.Account')}<Link to="/register">{t('login.SignUp')}</Link>
         </Typography>
       </form>
-    </Container>
+    </Container >
   )
 }
 
