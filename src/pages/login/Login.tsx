@@ -107,6 +107,18 @@ const Login = () => {
         >
           {t('login.Signin')}
         </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          fullWidth
+          style={{
+            marginBottom: '20px',
+          }}
+
+        >
+          Cancel
+        </Button>
+
         <Typography
           style={{
             display: 'flex',
