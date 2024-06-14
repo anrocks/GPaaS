@@ -37,7 +37,7 @@ const ForgotPassword = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography style={{ marginRight: '400px' }}>
-          {t('ForgotPassword.label')}
+          {t('ForgotPassword.Enteremailaddress')}
         </Typography>
         <Controller
           name="email"
@@ -65,9 +65,25 @@ const ForgotPassword = () => {
           style={{
             marginBottom: '20px',
             fontSize: '20px',
+            width: '40%'
           }}
         >{t('ForgotPassword.button')}
 
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          style={{
+            marginBottom: '20px',
+            width: '40%',
+            marginLeft: '100px',
+            fontSize: '20px',
+
+          }}
+        >
+          {t('general.Cancel')}
         </Button>
         <Typography style={style.link}>
           <Link to="/login">{t('ForgotPassword.BackToLogin')}</Link>

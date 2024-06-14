@@ -130,6 +130,7 @@ const Login = () => {
           style={{
             display: 'flex',
             justifyContent: 'left',
+
           }}
         >
           <Link to="/forget-password">{t('login.ForgotPassword')}</Link>
@@ -138,6 +139,7 @@ const Login = () => {
           style={{
             textAlign: 'right',
             marginTop: '-20px',
+            top: '50px'
           }}
         >
           {t('login.Account')}<Link to="/register">{t('login.SignUp')}</Link>

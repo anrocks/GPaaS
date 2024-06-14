@@ -18,7 +18,7 @@ const translationEN = {
     title: 'Forgot your Password',
     para: 'Please enter the email address youd like your password ',
     para2: 'reset information sent to',
-    label: 'Enter email address',
+    Enteremailaddress: 'Enter email address',
     button: 'Request reset link',
     BackToLogin: 'Back To Login',
   },
