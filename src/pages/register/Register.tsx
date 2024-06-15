@@ -12,7 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { registerPost } from '../../api/endpoints/register'
 import { dRegisterForm, RegisterForm } from '../../api/models/Register'
 import { useSnackbar } from 'notistack'
-import { useCallback, useState, useTransition } from 'react'
+import { useCallback, useState, } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 

@@ -53,7 +53,7 @@ const ForgotPassword = () => {
               fullWidth
               margin="normal"
               variant="outlined"
-              style={{ marginBottom: '20px', border: 'blue' }}
+              style={{ marginBottom: '20px', border: 'blue', width: '100%' }}
             />
           )}
         />
@@ -80,6 +80,7 @@ const ForgotPassword = () => {
             width: '40%',
             marginLeft: '100px',
             fontSize: '20px',
+            right: '30px'
 
           }}
         >

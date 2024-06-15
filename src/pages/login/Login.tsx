@@ -128,8 +128,8 @@ const Login = () => {
         </Button>
         <Typography
           style={{
-            display: 'flex',
-            justifyContent: 'left',
+            marginTop: '-40px',
+            textAlign: 'left',
 
           }}
         >
@@ -139,7 +139,7 @@ const Login = () => {
           style={{
             textAlign: 'right',
             marginTop: '-20px',
-            top: '50px'
+
           }}
         >
           {t('login.Account')}<Link to="/register">{t('login.SignUp')}</Link>
