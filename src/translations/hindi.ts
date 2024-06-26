@@ -1,6 +1,6 @@
 const translationHindi = {
   app: 'GPaaS',
-  
+
   register: {
     title: 'खाता बनाएं',
     iAgree: 'मैं सभी बयानों से सहमत हूँ',
@@ -19,6 +19,15 @@ const translationHindi = {
 
   forgotPassword: {},
 
+  Appbar: {
+    nofi: 'सूचनाएँ',
+    title: 'फ्लीट प्रबंधन',
+    btn: 'टेम्पलेट प्राप्त करने के लिए सबमिट करें',
+  },
+  Dashboard:{
+    loc:'आपका वर्तमान स्थान',
+  },
+
   general: {
     name: 'नाम',
     email: 'ईमेल',
@@ -26,7 +35,7 @@ const translationHindi = {
     repeatpassword: 'पासवर्ड दोहराएँ',
     newpassword: 'नया पासवर्ड',
     confirmp: 'नए पासवर्ड की पुष्टि करें',
-    cancel: 'रद्द करें'
+    cancel: 'रद्द करें',
   },
 }
 
