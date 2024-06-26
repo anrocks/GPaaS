@@ -18,14 +18,16 @@ const translationHindi = {
   },
 
   forgotPassword: {},
-
+  
   Appbar: {
-    nofi: 'सूचनाएँ',
+    nofi: 'सूचनाएं',
     title: 'फ्लीट प्रबंधन',
     btn: 'टेम्पलेट प्राप्त करने के लिए सबमिट करें',
   },
-  Dashboard:{
-    loc:'आपका वर्तमान स्थान',
+  Dashboard: {
+    loc: 'आपका वर्तमान स्थान',
+    error_loading: "Google मैप्स लोड करने में त्रुटि",
+    load: "लोड हो रहा है..."
   },
 
   general: {

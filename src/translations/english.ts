@@ -24,6 +24,8 @@ const translationEN = {
   },
   Dashboard:{
     loc:'Your current location',
+    error_loading: "Error loading Google Maps",
+    load:"Loading..."
   },
 
   general: {
