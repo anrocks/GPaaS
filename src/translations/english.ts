@@ -6,27 +6,22 @@ const translationEN = {
     termAndCondition: 'Terms of Service',
     account: 'Have already an account?',
     login: 'Login here',
-    signup:'Sign up', 
+    signup: 'Sign up',
   },
   login: {},
 
   resetPassword: {
     title: 'User Details',
-    continue:'Continue',
+    continue: 'Continue',
   },
 
   forgotPassword: {},
 
   general: {
-    name: 'Name',
-    email: 'Email',
-    password: 'Password',
-    repeatpassword: 'Repeat Password',
-    newpassword:'New Password',
-    confirmp:'Confirm New Password',
-    cancel: 'Cancel'
+    name: 'Name *',
+    email: 'Email *',
+    password: 'Password *',
   },
 }
 
 export default translationEN
- 
