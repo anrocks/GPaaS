@@ -63,11 +63,11 @@ const Login = () => {
               >
 
                 <MenuItem value="">
-                  <em>English</em>
+                  <em>None</em>
                 </MenuItem>
-                <MenuItem value={10}>English</MenuItem>
-                <MenuItem value={20}>Hindi</MenuItem>
-                <MenuItem value={30}>Marathi</MenuItem>
+                <MenuItem value="english">English</MenuItem>
+                <MenuItem value="hindi">Hindi</MenuItem>
+                <MenuItem value="marathi" >Marathi</MenuItem>
               </Select>
 
             </FormControl>
