@@ -42,32 +42,19 @@ const Register = () => {
 
   return (
     <Box
-      display="flex"
-      flexDirection="row"
-      width="100vw"
-      height="100vh"
+      sx={style.Box}
     >
 
       <Stack
-        width="30%"
-        height="100%"
-        bgcolor="#0C3B9C"
-        justifyContent="center"
-        alignItems="center"
+        sx={style.stack}
       >
         <Typography sx={{ color: "#fff", fontSize: '45px' }}>Gpass</Typography>
       </Stack>
       <Stack
-        flexGrow="1"
-        width="70%"
-        height="100%"
-
-        justifyContent="center"
-        alignItems="center"
-        style={{ width: '100%', maxWidth: '300px', marginLeft: '25%' }}
+        sx={style.form}
       >
-        <Typography variant="h4" style={{ color: 'blue', fontSize: '25px', marginBottom: '20px' }}>
-          <ArrowBackIcon style={{ color: "blue", fontSize: "25px", marginRight: '10px' }} />
+        <Typography variant="h4" style={style.title}>
+          <ArrowBackIcon style={style.icon} />
           REGISTER
         </Typography>
 
@@ -117,7 +104,7 @@ const Register = () => {
             render={({ field, fieldState }) => (
               <TextField
                 {...field}
-                label={t('general.password')}
+                label={t('general.password ')}
                 type="password"
                 error={!!fieldState.error}
                 helperText={fieldState.error?.message}
