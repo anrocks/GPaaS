@@ -17,15 +17,20 @@ const translationEN = {
 
   forgotPassword: {},
 
-  Appbar: {
-    nofi: 'Notifications',
-    title: 'Fleet Management',
-    btn: 'Submit to get the template',
-  },
   Dashboard:{
     loc:'Your current location',
-    error_loading: "Error loading Google Maps",
-    load:"Loading..."
+    searchDevices:"Search Devices",
+    active:"Active",
+    inactive:"Inactive",
+    group1:"Group 1",
+    group2:"Group 2",
+    name: "Name",
+    date: "Date",
+    filterOnMap: "Filter on Map",
+    map:"Map",
+    reports: "Reports",
+    settings: "Settings",
+    account: "Account"
   },
 
   general: {
