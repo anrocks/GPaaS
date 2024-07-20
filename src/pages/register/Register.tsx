@@ -1,3 +1,4 @@
+
 import {
   Button,
   Box,
@@ -6,7 +7,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-
+import { Link } from 'react-router-dom'
 import * as style from './style'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { registerPost } from '../../api/endpoints/register'
