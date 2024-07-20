@@ -101,7 +101,12 @@ const ZoomControl: React.FC = () => {
   );
 };
 
-const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }> = ({ value, setValue }) => {
+interface SidebarProps {
+  value: number;
+  setValue: (newValue: number) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const { t } = useTranslation();
 
@@ -114,7 +119,7 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                 <IconButton
+                <IconButton
                   aria-label="tune"
                   onClick={() => setShowFilters(!showFilters)}
                   style={{ outline: 'none' }}
@@ -127,7 +132,7 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
           variant="outlined"
           fullWidth
         />
-        <IconButton aria-label="add" sx={{ ml: 1}}>
+        <IconButton aria-label="add" sx={{ ml: 1 }}>
           <AddIcon />
         </IconButton>
       </Box>
@@ -151,8 +156,8 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
             variant="outlined"
             sx={{ mb: 2 }}
           >
-             <MenuItem value="group1">{t('Dashboard.group1')}</MenuItem>
-             <MenuItem value="group2">{t('Dashboard.group2')}</MenuItem>
+            <MenuItem value="group1">{t('Dashboard.group1')}</MenuItem>
+            <MenuItem value="group2">{t('Dashboard.group2')}</MenuItem>
           </TextField>
           <TextField
             select
@@ -161,8 +166,8 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
             variant="outlined"
             sx={{ mb: 2 }}
           >
-        <MenuItem value="name">{t('Dashboard.name')}</MenuItem>
-        <MenuItem value="date">{t('Dashboard.date')}</MenuItem>
+            <MenuItem value="name">{t('Dashboard.name')}</MenuItem>
+            <MenuItem value="date">{t('Dashboard.date')}</MenuItem>
           </TextField>
           <FormControlLabel control={<Checkbox />} label={t('Dashboard.filterOnMap')} />
         </Box>
@@ -204,7 +209,7 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
             },
           }}
         />
-           <BottomNavigationAction
+        <BottomNavigationAction
           label={t('Dashboard.settings')}  
           icon={<SettingsIcon style={{ color: value === 2 ? 'darkblue' : 'grey' }} />}
           component={Link} to="/settings" 
@@ -231,6 +236,7 @@ const Sidebar: React.FC<{ value: number; setValue: (newValue: number) => void }>
     </Box>
   );
 };
+
 const Dashboard: React.FC = () => {
   const { t } = useTranslation();
   const [position, setPosition] = useState<[number, number] | null>(null);
@@ -245,6 +251,7 @@ const Dashboard: React.FC = () => {
       },
       (err) => {
         console.error('Error getting current position:', err);
+        // Optionally set a default position or show an error message to the user
       }
     );
   }, []);

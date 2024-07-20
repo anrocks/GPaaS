@@ -113,11 +113,6 @@ const translationEN = {
   temporary: "Temporary"
 },
 
-  general: {
-    name: 'Name *',
-    email: 'Email *',
-    password: 'Password *',
-  },
 }
 
 export default translationEN
