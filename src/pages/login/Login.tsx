@@ -1,27 +1,33 @@
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import {
   TextField,
   Button,
   Typography,
-  Container,
-  Checkbox,
-  FormControlLabel,
+  Stack,
+  Box,
+
 } from '@mui/material'
 import { zodResolver } from '@hookform/resolvers/zod'
-import LockIcon from '@mui/icons-material/Lock'
-import { Link } from 'react-router-dom'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useSnackbar } from 'notistack'
 import * as styles from './Login.styles'
 import { ILoginForm, LoginForm } from '../../api/models/ILogin'
 import { loginPost } from '../../api/endpoints/login'
 
 const Login = () => {
+  const [english, setEnglish] = useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setEnglish(event.target.value);
+  };
   const { enqueueSnackbar } = useSnackbar()
   const { control, handleSubmit } = useForm<ILoginForm>({
     resolver: zodResolver(LoginForm),
   })
-  const [rememberMe, setRememberMe] = useState(false)
+
 
   const onSubmit = useCallback(
     async (data: ILoginForm) => {
@@ -34,95 +40,94 @@ const Login = () => {
     },
     [enqueueSnackbar]
   )
-
-  const handleRememberMeChange = () => {
-    console.log('Called', rememberMe)
-    setRememberMe((prev) => !prev)
-  }
-
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" gutterBottom style={styles.icon}>
-        <LockIcon />
-      </Typography>
-      <Typography style={styles.title}>Sign in</Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          render={({ field, fieldState }) => (
-            <TextField
-              {...field}
-              label="Email"
-              type="email"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              style={{ marginBottom: '20px' }}
+    <>
+      <Box style={styles.Box}>
+        <Stack
+          sx={styles.stack}
+
+        >
+          <Typography sx={styles.title}>Gpass</Typography>
+        </Stack>
+        <Stack sx={styles.form}
+        >
+          <form onSubmit={handleSubmit(onSubmit)} >
+            <FormControl sx={styles.FormControl} size="small" >
+
+              <Select
+
+                value={english}
+                onChange={handleChange}
+                displayEmpty
+                inputProps={{ 'aria-label': 'Without label' }}
+              >
+
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="english">English</MenuItem>
+                <MenuItem value="hindi">Hindi</MenuItem>
+                <MenuItem value="marathi" >Marathi</MenuItem>
+              </Select>
+
+            </FormControl>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              render={({ field, fieldState }) => (
+                <TextField
+                  {...field}
+                  label="Email *"
+                  type="email"
+                  error={!!fieldState.error}
+                  helperText={fieldState.error?.message}
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  style={{ marginBottom: '20px' }}
+                  InputProps={{ style: { height: '45px', padding: '10px' } }}
+                />
+              )}
             />
-          )}
-        />
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          render={({ field, fieldState }) => (
-            <TextField
-              {...field}
-              label="Password"
-              type="password"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              style={{ marginBottom: '20px' }}
+            <Controller
+              name="password"
+              control={control}
+              defaultValue=""
+              render={({ field, fieldState }) => (
+                <TextField
+                  {...field}
+                  label="Password *"
+                  type="password"
+                  error={!!fieldState.error}
+                  helperText={fieldState.error?.message}
+                  fullWidth
+
+                  margin="normal"
+                  variant="outlined"
+                  style={{ marginBottom: '20px', }}
+                  InputProps={{ style: { height: '45px', padding: '10px' } }}
+                />
+              )}
             />
-          )}
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={rememberMe}
-              onChange={handleRememberMeChange}
+
+            <Button
+              type="submit"
+              variant="contained"
               color="primary"
-            />
-          }
-          label="Remember Me"
-          style={styles.checkbox}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          style={{
-            marginBottom: '20px',
-          }}
-        >
-          Sign in
-        </Button>
-        <Typography
-          style={{
-            display: 'flex',
-            justifyContent: 'left',
-          }}
-        >
-          <Link to="/forget-password">Forgot Password?</Link>
-        </Typography>
-        <Typography
-          style={{
-            textAlign: 'right',
-            marginTop: '-20px',
-          }}
-        >
-          Don't have an account? <Link to="/register">Sign Up</Link>
-        </Typography>
-      </form>
-    </Container>
+              fullWidth
+              style={{
+                marginBottom: '20px',
+                backgroundColor: 'green'
+              }}
+
+            >
+              LOGIN
+            </Button>
+          </form>
+        </Stack>
+      </Box >
+    </>
   )
 }
 
