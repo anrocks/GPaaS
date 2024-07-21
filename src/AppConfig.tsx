@@ -74,7 +74,7 @@ export const SetRoutes = () => {
         <Route path="/ComputedAttributes" element={< ComputedAttributes />} />
         <Route path="/Maintenances" element={< Maintenances />} />
         <Route path="/SavedCommands" element={< SavedCommands />} />
-        <Route path="/Announcement" element={< Announcement />} />
+        <Route path="/ Announcement" element={< Announcement />} />
         <Route path="/Server" element={<Server />} />
         <Route path="/Users" element={<Users />} />
 

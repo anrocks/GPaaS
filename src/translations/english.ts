@@ -115,6 +115,13 @@ const translationEN = {
     cANCEL: 'CANCEL',
     sAVE: 'SAVE',
   },
+  Announcement: {
+    required: 'Required',
+    subject: 'Subject',
+    message: 'Message',
+    cANCEL: 'CANCEL',
+    sEND: 'SEND',
+  },
 }
 
 export default translationEN
