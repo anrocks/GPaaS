@@ -111,67 +111,69 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
   const { t } = useTranslation();
 
   return (
-    <Box sx={{ width: 300, p: 2, zIndex: 1000, backgroundColor: 'white', boxShadow: 1, position: 'absolute', top: 7, bottom: 7, left: 7, overflow: 'auto' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-        <MapIcon sx={{ mr: 1, color: '#808080CC' }} />
-        <TextField
-          placeholder={t('Dashboard.searchDevices')}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="tune"
-                  onClick={() => setShowFilters(!showFilters)}
-                  style={{ outline: 'none' }}
-                >
-                  <TuneIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          variant="outlined"
-          fullWidth
-        />
-        <IconButton aria-label="add" sx={{ ml: 1 }}>
-          <AddIcon />
-        </IconButton>
-      </Box>
-
-      <Collapse in={showFilters}>
-        <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 1, mt: 2 }}>
+    <Box sx={{ width: 300, height: '100vh', display: 'flex', flexDirection: 'column', zIndex: 1000, backgroundColor: 'white', boxShadow: 1, position: 'absolute', top: 0, bottom: 0, left: 0 }}>
+      <Box sx={{ p: 2, flex: 1, overflowY: 'auto' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+          <MapIcon sx={{ mr: 1, color: '#808080CC' }} />
           <TextField
-            select
-            fullWidth
-            label="Status"
+            placeholder={t('Dashboard.searchDevices')}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="tune"
+                    onClick={() => setShowFilters(!showFilters)}
+                    style={{ outline: 'none' }}
+                  >
+                    <TuneIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
             variant="outlined"
-            sx={{ mb: 2 }}
-          >
-            <MenuItem value="active">{t('Dashboard.active')}</MenuItem>
-            <MenuItem value="inactive">{t('Dashboard.inactive')}</MenuItem>
-          </TextField>
-          <TextField
-            select
             fullWidth
-            label="Groups"
-            variant="outlined"
-            sx={{ mb: 2 }}
-          >
-            <MenuItem value="group1">{t('Dashboard.group1')}</MenuItem>
-            <MenuItem value="group2">{t('Dashboard.group2')}</MenuItem>
-          </TextField>
-          <TextField
-            select
-            fullWidth
-            label="Sort By"
-            variant="outlined"
-            sx={{ mb: 2 }}
-          >
-            <MenuItem value="name">{t('Dashboard.name')}</MenuItem>
-            <MenuItem value="date">{t('Dashboard.date')}</MenuItem>
-          </TextField>
-          <FormControlLabel control={<Checkbox />} label={t('Dashboard.filterOnMap')} />
+          />
+          <IconButton aria-label="add" sx={{ ml: 1 }}>
+            <AddIcon />
+          </IconButton>
         </Box>
-      </Collapse>
+
+        <Collapse in={showFilters}>
+          <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 1, mt: 2 }}>
+            <TextField
+              select
+              fullWidth
+              label="Status"
+              variant="outlined"
+              sx={{ mb: 2 }}
+            >
+              <MenuItem value="active">{t('Dashboard.active')}</MenuItem>
+              <MenuItem value="inactive">{t('Dashboard.inactive')}</MenuItem>
+            </TextField>
+            <TextField
+              select
+              fullWidth
+              label="Groups"
+              variant="outlined"
+              sx={{ mb: 2 }}
+            >
+              <MenuItem value="group1">{t('Dashboard.group1')}</MenuItem>
+              <MenuItem value="group2">{t('Dashboard.group2')}</MenuItem>
+            </TextField>
+            <TextField
+              select
+              fullWidth
+              label="Sort By"
+              variant="outlined"
+              sx={{ mb: 2 }}
+            >
+              <MenuItem value="name">{t('Dashboard.name')}</MenuItem>
+              <MenuItem value="date">{t('Dashboard.date')}</MenuItem>
+            </TextField>
+            <FormControlLabel control={<Checkbox />} label={t('Dashboard.filterOnMap')} />
+          </Box>
+        </Collapse>
+      </Box>
       <BottomNavigation
         showLabels
         value={value}
@@ -179,10 +181,7 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
           setValue(newValue);
         }}
         sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
+          position: 'relative',
           zIndex: 1000,
           boxShadow: 1,
         }}
