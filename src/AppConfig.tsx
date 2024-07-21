@@ -11,7 +11,7 @@ import ResetPassword from './pages/resetPassword/ResetPassword'
 import './App.css'
 
 import Sidenavbar from './sidenavbar/Sidenavbar'
-import Preferences from './pages/settings/preference/Preference'
+import Preferences from './pages/settings/preference/Preferences'
 import Notifications from './pages/settings/notification/Notification'
 import Accounts from './pages/settings/accounts/Accounts'
 import Devices from './pages/settings/devices/Devices'

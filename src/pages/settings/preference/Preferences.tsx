@@ -11,6 +11,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { useTranslation } from 'react-i18next';
+import * as style from './style'
 const Preferences = () => {
     const { t } = useTranslation();
     return (
@@ -24,7 +25,7 @@ const Preferences = () => {
                             aria-controls="panel1-content"
                             id="panel1-header"
                         >
-                            <Typography>{t('Preferences. map')}</Typography>
+                            <Typography>{t('Preferences.map')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <TextField
@@ -41,18 +42,18 @@ const Preferences = () => {
                                 select
 
                                 sx={{ mb: 2 }}>
-                                <MenuItem value="Map Overlay">Map Overlay</MenuItem>
+                                <MenuItem value="Map Overlay">{t('Preferences.mapOverlay')}</MenuItem>
                             </TextField>
                             <TextField
                                 fullWidth
                                 variant='outlined'
-                                label={t('Preferences.Popup Info')}
+                                label={t('Preferences.popupInfo')}
                                 sx={{ mb: 2 }} />
                             <TextField
                                 fullWidth
                                 variant='outlined'
                                 select
-                                label="Live Routes"
+                                label={t('Preferences.liveRoutes')}
                                 sx={{ mb: 2 }}>
                                 <MenuItem value="Disabled">Disabled</MenuItem>
                             </TextField>
@@ -60,15 +61,15 @@ const Preferences = () => {
                                 fullWidth
                                 variant='outlined'
                                 select
-                                label="Show Direction"
+                                label={t('Preferences.showDirection')}
                                 sx={{ mb: 2 }}>
                                 <MenuItem value="Selected Devices">Selected Devices</MenuItem>
                             </TextField>
                             <FormGroup>
-                                <FormControlLabel control={<Checkbox />} label="Show Geofences" />
-                                <FormControlLabel control={<Checkbox />} label="Follow" />
-                                <FormControlLabel control={<Checkbox />} label="Markers Clustering" />
-                                <FormControlLabel control={<Checkbox />} label="Show Map On Selection" />
+                                <FormControlLabel control={<Checkbox />} label={t('Preferences.showGeofences')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Preferences.follow')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Preferences.markersClustering')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Preferences.showMapOnSelection')} />
 
                             </FormGroup>
                         </AccordionDetails>
@@ -79,14 +80,14 @@ const Preferences = () => {
                             aria-controls="panel2-content"
                             id="panel2-header"
                         >
-                            <Typography>{t('Preferences. devices')}</Typography>
+                            <Typography>{t('Preferences.devices')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <TextField
                                 fullWidth
                                 variant='outlined'
                                 select
-                                label="Device Title"
+                                label={t('Preferences.deviceTitle')}
                                 sx={{ mb: 2 }}>
                                 <MenuItem value="Name">Name </MenuItem>
                             </TextField>
@@ -94,9 +95,8 @@ const Preferences = () => {
                                 fullWidth
                                 variant='outlined'
                                 select
-
                                 sx={{ mb: 2 }}>
-                                <MenuItem value="Device Detail">Device Detail</MenuItem>
+                                <MenuItem value="Device Detail">{t('Preferences.deviceDetail')}</MenuItem>
                             </TextField>
                         </AccordionDetails>
                     </Accordion>
@@ -106,22 +106,21 @@ const Preferences = () => {
                             aria-controls="panel3-content"
                             id="panel3-header"
                         >
-                            <Typography>Notification Sound</Typography>
+                            <Typography>{t('Preferences.notificationSound')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <TextField
                                 fullWidth
                                 variant='outlined'
                                 select
-
                                 sx={{ mb: 2 }}>
-                                <MenuItem value="Sound Events">Sound Events</MenuItem>
+                                <MenuItem value="Sound Events">{t('Preferences.soundEvents')}</MenuItem>
                             </TextField>
                             <TextField
                                 fullWidth
                                 variant='outlined'
                                 select
-                                label="Sound Alarms"
+                                label={t('Preferences.soundAlarms')}
                                 sx={{ mb: 2 }}>
                                 <MenuItem value="SOS">SOS </MenuItem>
                             </TextField>
@@ -134,7 +133,7 @@ const Preferences = () => {
                             aria-controls="panel3-content"
                             id="panel3-header"
                         >
-                            <Typography>Token</Typography>
+                            <Typography>{t('Preferences.token')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
 
@@ -147,7 +146,7 @@ const Preferences = () => {
                             aria-controls="panel3-content"
                             id="panel3-header"
                         >
-                            <Typography>Info</Typography>
+                            <Typography>{t('Preferences.info')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
 
@@ -155,8 +154,8 @@ const Preferences = () => {
                     </Accordion>
                     <div style={{ marginTop: '25px', display: 'flex', justifyContent: 'center', gap: '30%' }}>
 
-                        <Button variant="outlined" style={{ minWidth: '150px', minHeight: '40px', fontSize: '15px' }}> </Button>
-                        <Button variant="contained" style={{ minWidth: '150px', minHeight: '40px', fontSize: '15px' }}></Button>
+                        <Button variant="outlined" style={style.save}>{t('Preferences.cANCEL')} </Button>
+                        <Button variant="contained" style={style.cancel}>{t('Preferences.sAVE')}</Button>
                     </div>
                 </div>
             </Box>
