@@ -186,9 +186,9 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
           boxShadow: 1,
         }}
       >
-        <BottomNavigationAction 
+        <BottomNavigationAction
           label={t('Dashboard.map')}
-          icon={<MapIcon style={{ color: value === 0 ? 'darkblue' : 'grey' }} />} 
+          icon={<MapIcon style={{ color: value === 0 ? 'darkblue' : 'grey' }} />}
           onClick={() => setValue(0)}
           sx={{
             '&:focus': {
@@ -197,9 +197,9 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
             },
           }}
         />
-        <BottomNavigationAction 
-          label={t('Dashboard.reports')}  
-          icon={<SummarizeIcon style={{ color: value === 1 ? 'darkblue' : 'grey' }} />} 
+        <BottomNavigationAction
+          label={t('Dashboard.reports')}
+          icon={<SummarizeIcon style={{ color: value === 1 ? 'darkblue' : 'grey' }} />}
           onClick={() => setValue(1)}
           sx={{
             '&:focus': {
@@ -209,9 +209,9 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
           }}
         />
         <BottomNavigationAction
-          label={t('Dashboard.settings')}  
+          label={t('Dashboard.settings')}
           icon={<SettingsIcon style={{ color: value === 2 ? 'darkblue' : 'grey' }} />}
-          component={Link} to="/settings" 
+          component={Link} to="/settings"
           onClick={() => setValue(2)}
           sx={{
             '&:focus': {
@@ -220,9 +220,9 @@ const Sidebar: React.FC<SidebarProps> = ({ value, setValue }) => {
             },
           }}
         />
-        <BottomNavigationAction 
-          label={t('Dashboard.account')}  
-          icon={<PersonIcon style={{ color: value === 3 ? 'darkblue' : 'grey' }} />} 
+        <BottomNavigationAction
+          label={t('Dashboard.account')}
+          icon={<PersonIcon style={{ color: value === 3 ? 'darkblue' : 'grey' }} />}
           onClick={() => setValue(3)}
           sx={{
             '&:focus': {
