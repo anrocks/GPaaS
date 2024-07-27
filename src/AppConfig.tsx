@@ -11,7 +11,7 @@ import ResetPassword from './pages/resetPassword/ResetPassword'
 import './App.css'
 
 import Sidenavbar from './sidenavbar/Sidenavbar'
-import Preferences from './pages/settings/preference/Preference'
+import Preferences from './pages/settings/preference/Preferences'
 import Notifications from './pages/settings/notification/Notification'
 import Accounts from './pages/settings/accounts/Accounts'
 import Devices from './pages/settings/devices/Devices'
@@ -74,7 +74,7 @@ export const SetRoutes = () => {
         <Route path="/ComputedAttributes" element={< ComputedAttributes />} />
         <Route path="/Maintenances" element={< Maintenances />} />
         <Route path="/SavedCommands" element={< SavedCommands />} />
-        <Route path="/Announcement" element={< Announcement />} />
+        <Route path="/ Announcement" element={< Announcement />} />
         <Route path="/Server" element={<Server />} />
         <Route path="/Users" element={<Users />} />
 

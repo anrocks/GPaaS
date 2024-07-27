@@ -67,7 +67,7 @@ const Server = () => {
                             fullWidth
                             variant='outlined'
                             select
-                            label="Speed Unit"
+                            label={t('Server.speedUnit')}
                             sx={{ mb: 2 }}>
                             <MenuItem value="kn">{t('Server.kn')}</MenuItem>
                         </TextField>
@@ -181,7 +181,7 @@ const Server = () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
-                        {t('Server.Attributes')}
+                        {t('Server.attributes')}
                     </AccordionSummary>
                     <AccordionDetails>
                         <Button variant="outlined" sx={{ p: 3, mb: 2, width: "70%", height: '10px', fontSize: '25px' }}> {t('Server.aDD')}</Button>
