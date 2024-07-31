@@ -18,23 +18,22 @@ const translationHindi = {
   },
 
   forgotPassword: {},
-  
+
   Dashboard: {
     loc: 'आपका वर्तमान स्थान',
-    searchDevices: "डिवाइस खोजें",
-    active: "सक्रिय",
-    inactive: "निष्क्रिय",
-    group1: "समूह 1",
-    group2: "समूह 2",
-    name: "नाम",
-    date: "तारीख",
-    filterOnMap: "नक्शे पर फिल्टर करें",
-    map: "नक्शा",
-    reports: "रिपोर्ट्स",
-    settings: "सेटिंग्स",
-    account: "खाता"
+    searchDevices: 'डिवाइस खोजें',
+    active: 'सक्रिय',
+    inactive: 'निष्क्रिय',
+    group1: 'समूह 1',
+    group2: 'समूह 2',
+    name: 'नाम',
+    date: 'तारीख',
+    filterOnMap: 'नक्शे पर फिल्टर करें',
+    map: 'नक्शा',
+    reports: 'रिपोर्ट्स',
+    settings: 'सेटिंग्स',
+    account: 'खाता',
   },
-
 
   Devices: {
     required: 'आवश्यक',
@@ -42,7 +41,10 @@ const translationHindi = {
     name: 'नाम',
     extra: 'अतिरिक्त',
     attributes: 'विशेषताएँ',
-    helpertext: 'IMEI, सीरियल नंबर या अन्य पहचानकर्ता। यह उस पहचानकर्ता से मेल खाना चाहिए जो डिवाइस सर्वर को रिपोर्ट करता है।'
+    helpertext:
+      'IMEI, सीरियल नंबर या अन्य पहचानकर्ता। यह उस पहचानकर्ता से मेल खाना चाहिए जो डिवाइस सर्वर को रिपोर्ट करता है।',
+    CANCEL: 'रद्द करें',
+    SAVE: 'सहेजें',
   },
 
   Server: {
@@ -87,14 +89,14 @@ const translationHindi = {
     ActiveMaps: 'सक्रिय मानचित्र',
     Add: 'जोड़ें',
     CANCEL: 'रद्द करें',
-    SAVE: 'सहेजें'
+    SAVE: 'सहेजें',
   },
 
   Notification: {
     type: 'सूचना का प्रकार',
     allDevices: 'सभी डिवाइस',
     alarms: 'अलार्म',
-    channels: 'चैनल'
+    channels: 'चैनल',
   },
 
   Users: {
@@ -103,7 +105,7 @@ const translationHindi = {
     admin: 'एडमिन',
     disabled: 'अक्षम',
     expiration: 'समाप्ति',
-    temporary: 'अस्थायी'
+    temporary: 'अस्थायी',
   },
 
   general: {
