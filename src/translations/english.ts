@@ -142,6 +142,7 @@ const translationEN = {
     message: 'Message',
     cANCEL: 'CANCEL',
     sEND: 'SEND',
+  },
 
   Account: {
     required: 'Required',
