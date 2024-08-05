@@ -165,15 +165,15 @@ const translationEN = {
     soundAlarms: 'Sound Alarms',
     token: 'Token',
     info: 'Info',
-    cANCEL: 'CANCEL',
-    sAVE: 'SAVE',
+    cancel: 'CANCEL',
+    save: 'SAVE',
   },
   Announcement: {
     required: 'Required',
     subject: 'Subject',
     message: 'Message',
-    cANCEL: 'CANCEL',
-    sEND: 'SEND',
+    cancel: 'CANCEL',
+    send: 'SEND',
   },
 }
 
