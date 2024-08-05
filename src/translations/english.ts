@@ -17,6 +17,7 @@ const translationEN = {
 
   forgotPassword: {},
 
+
   Devices: {
     required: 'Required',
     identifier: 'Identifier',
@@ -26,31 +27,19 @@ const translationEN = {
     helpertext:
       'IMEI, serial number or other id. It has to match the identifier device reports to the server.',
   },
-  Dashboard: {
-    loc: 'Your current location',
-    searchDevices: 'Search Devices',
-    active: 'Active',
-    inactive: 'Inactive',
-    group1: 'Group 1',
-    group2: 'Group 2',
-    name: 'Name',
-    date: 'Date',
-    filterOnMap: 'Filter on Map',
-    map: 'Map',
-    reports: 'Reports',
-    settings: 'Settings',
-    account: 'Account',
+
+  Appbar: {
+    newNotifications: 'new notifications',
+    nofi: 'Notifications',
+    account: 'account of current user',
+    openDrawer: 'open drawer',
+    title: 'Appbar Title',
+    btn: 'Button Text',
+    showMore: 'show more',
   },
 
-  general: {
-    name: 'Name',
-    email: 'Email',
-    password: 'Password',
-    repeatpassword: 'Repeat Password',
-    newpassword: 'New Password',
-    confirmp: 'Confirm New Password',
-    cancel: 'Cancel',
-  },
+
+ 
 
   Account: {
     required: 'Required',
@@ -111,7 +100,8 @@ const translationEN = {
     disabled: 'Disabled',
     expiration: 'Expiration',
     temporary: 'Temporary',
-  },
+=======
+ 
 
   Server: {
     preferences: 'Preferences',
