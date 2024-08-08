@@ -5,7 +5,7 @@ export const cancel: CSSProperties = {
   minHeight: '40px',
   fontSize: '15px',
 }
-export const save: CSSProperties = {
+export const send: CSSProperties = {
   minWidth: '150px',
   minHeight: '40px',
   fontSize: '15px',

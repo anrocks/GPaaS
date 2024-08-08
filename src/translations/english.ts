@@ -25,6 +25,7 @@ const translationEN = {
     attributes: 'Attributes',
     helpertext:
       'IMEI, serial number or other id. It has to match the identifier device reports to the server.',
+<<<<<<< Updated upstream
   },
 
   Account: {
@@ -68,6 +69,8 @@ const translationEN = {
     Attributes: 'Attributes',
     ActiveMaps: 'Active Maps',
     Add: 'Add',
+=======
+>>>>>>> Stashed changes
     CANCEL: 'CANCEL',
     SAVE: 'SAVE',
   },
@@ -118,7 +121,7 @@ const translationEN = {
     deviceReadonly: 'Device Readonly',
     limitCommands: 'Limit Commands',
     disableReports: 'Disable Reports',
-    noEmailChange: 'No Email Change',
+    noEmailChanges: 'No Email Changes',
     file: 'File',
     para: 'Drag and drop a file here or click',
     attributes: 'Attributes',
@@ -126,7 +129,7 @@ const translationEN = {
     cANCEL: 'CANCEL',
     sAVE: 'SAVE',
   },
-  Preferences: {
+  Preference: {
     map: 'Map',
     activeMap: 'ActiveMap',
     mapOverlay: 'Map Overlay',
@@ -140,21 +143,69 @@ const translationEN = {
     devices: 'Devices',
     deviceTitle: 'Device Title',
     deviceDetail: 'Device Detail',
-    notificationSound: 'NotificationSound',
+    notificationSound: 'Notification Sound',
     soundEvents: 'Sound Events',
     soundAlarms: 'Sound Alarms',
     token: 'Token',
     info: 'Info',
-    cANCEL: 'CANCEL',
-    sAVE: 'SAVE',
+    cancel: 'CANCEL',
+    save: 'SAVE',
   },
   Announcement: {
     required: 'Required',
     subject: 'Subject',
     message: 'Message',
-    cANCEL: 'CANCEL',
-    sEND: 'SEND',
+    cancel: 'CANCEL',
+    send: 'SEND',
   },
+<<<<<<< Updated upstream
+=======
+
+  Account: {
+    required: 'Required',
+    name: 'Name',
+    admin: 'Admin',
+    email: 'Email',
+    emailadd: 'admin@email.com',
+    password: 'Password',
+    preferences: 'Preferences',
+    phone: 'Phone',
+    defaultMap: 'Default Map',
+    locationIQStreets: 'LocationIQ Streets',
+    coordinatesFormat: 'Coordinates Format',
+    decimalDegrees: 'Decimal Degrees',
+    speedUnit: 'Speed Unit',
+    kn: 'kn',
+    distanceUnit: 'Distance Unit',
+    km: 'km',
+    altitudeUnit: 'Altitude Unit',
+    m: 'm',
+    volumeUnit: 'Volume Unit',
+    liter: 'Liter',
+    location: 'Location',
+    latitude: 'Latitude',
+    longitude: 'Longitude',
+    zoom: 'Zoom',
+    cURRENTLOCATION: 'CURRENT LOCATION',
+    permission: 'Permission',
+    expiration: 'Expiration',
+    date: '01-01-2099',
+    deviceLimit: 'Device Limit',
+    userLimit: 'User Limit',
+    disabled: 'Disabled',
+    admin1: 'Admin',
+    readonly: 'Readonly',
+    deviceReadonly: 'Device Readonly',
+    LimitCommands: 'Limit Commands',
+    DisableReports: 'Disable Reports',
+    NoEmailChange: 'No Email Change',
+    Attributes: 'Attributes',
+    ActiveMaps: 'Active Maps',
+    Add: 'Add',
+    CANCEL: 'CANCEL',
+    SAVE: 'SAVE',
+  },
+>>>>>>> Stashed changes
 }
 
 export default translationEN
