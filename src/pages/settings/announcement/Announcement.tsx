@@ -90,4 +90,8 @@ const Announcement = () => {
                 </div>
             </form>
         </Box>
-=======
+
+    )
+}
+export default Announcement;
+
