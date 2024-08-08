@@ -11,6 +11,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { useTranslation } from 'react-i18next';
+
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -46,10 +47,14 @@ const Preferences = () => {
         reset(); // Clear form fields
     };
 
+
+const Preferences = () => {
+
     const { t } = useTranslation();
     return (
         <>
             <Box height={100} style={{ marginBottom: '50%' }}>
+
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div >
@@ -319,6 +324,8 @@ const Preferences = () => {
                         </div>
                     </div>
                 </form>
+
+               
             </Box>
         </>
     );

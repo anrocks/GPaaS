@@ -26,9 +26,9 @@ const Server = () => {
 
     const handleUpload = () => {
 
-        console.log(selectedFile);
 
-        setSelectedFile(null);
+        console.log(selectedFile);
+setSelectedFile(null);
     };
     return (
 
@@ -41,7 +41,10 @@ const Server = () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
+
                         <Typography>{t('Server.preferences')}</Typography>
+
+                       
                     </AccordionSummary>
                     <AccordionDetails>
 
@@ -77,7 +80,8 @@ const Server = () => {
                             select
                             label={t('Server.distanceUnit')}
                             sx={{ mb: 2 }} >
-                            <MenuItem value="km">Km</MenuItem>
+                    <MenuItem value="km">Km</MenuItem>
+                           
                         </TextField>
                         <TextField
                             fullWidth
@@ -111,7 +115,10 @@ const Server = () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
+
                         <Typography>{t('Server.location')}</Typography>
+
+                      
                     </AccordionSummary>
                     <AccordionDetails >
                         <TextField fullWidth label={t('Server.latitude')} id="Latitude" sx={{ mb: 2 }}
@@ -131,7 +138,9 @@ const Server = () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
-                        {t('Server.permissions')}
+    {t('Server.permissions')}
+
+                      
                     </AccordionSummary>
                     <AccordionDetails>
                         <FormGroup>
@@ -140,7 +149,9 @@ const Server = () => {
                             <FormControlLabel control={<Checkbox />} label={t('Server.deviceReadonly')} />
                             <FormControlLabel control={<Checkbox />} label={t('Server.limitCommands')} />
                             <FormControlLabel control={<Checkbox />} label={t('Server.disableReports')} />
-                            <FormControlLabel control={<Checkbox />} label={t('Server.noEmailChange')} />
+
+                            <FormControlLabel control={<Checkbox />} label={t('Server.noEmailChanges')} />
+
                         </FormGroup>
                     </AccordionDetails>
                 </Accordion>
@@ -150,7 +161,9 @@ const Server = () => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
+
                         <Typography>{t('Server.file')}</Typography>
+
                     </AccordionSummary>
                     <AccordionDetails>
                         <Stack spacing={2}>
