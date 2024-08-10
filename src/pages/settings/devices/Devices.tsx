@@ -20,22 +20,29 @@ const Devices: React.FC = () => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   
-  const { control, handleSubmit, formState } = useForm<DevicesForm>({
+  const { control, handleSubmit, formState, reset } = useForm<DevicesForm>({
     resolver: zodResolver(DevicesFSchema),
-    mode: 'onChange', // Ensures validation on every change
+    mode: 'onChange', 
   });
 
   const onSubmit = useCallback(
     async (data: DevicesForm) => {
+      console.log("data: ", data); 
       try {
         const response = await devicePost(data);
+        console.log("Response from devicePost: ", response); 
         enqueueSnackbar(response as string, { variant: 'success' });
       } catch (error) {
+        console.error("Error from devicePost: ", error);  
         enqueueSnackbar(error as string, { variant: 'error' });
       }
     },
     [enqueueSnackbar]
   );
+
+  const handleCancel = () => {
+    reset(); // Clear form fields
+};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -146,12 +153,15 @@ const Devices: React.FC = () => {
       </Accordion>
 
       <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mt: 2 }}>
-        <Button variant="outlined">{t('Devices.CANCEL')}</Button>
+        <Button variant="outlined" onClick={handleCancel}>
+          {t('Devices.CANCEL')}
+        </Button>
         <Button
           type="submit"
           variant="contained"
           color="primary"
           disabled={!formState.isValid || formState.isSubmitting}
+          onClick={() => console.log("Save button clicked")}
         >
           {t('Devices.SAVE')}
         </Button>

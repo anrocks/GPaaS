@@ -31,6 +31,7 @@ const Account: React.FC = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { isValid, isSubmitting },
   } = useForm<daccountForm>({
     resolver: zodResolver(AccountForm),
@@ -52,6 +53,10 @@ const Account: React.FC = () => {
   const handleActiveMapsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setActiveMaps(event.target.value);
   };
+
+  const handleCancel = () => {
+    reset(); // Clear form fields
+};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -483,7 +488,7 @@ const Account: React.FC = () => {
 
       {/* Save and Cancel Buttons */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mt: 2 }}>
-        <Button variant="outlined">{t('Account.CANCEL')}</Button>
+        <Button variant="outlined" onClick={handleCancel}>{t('Account.CANCEL')}</Button>
         <Button
           type="submit"
           variant="contained"
