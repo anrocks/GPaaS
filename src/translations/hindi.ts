@@ -18,6 +18,22 @@ const translationHindi = {
   },
 
   forgotPassword: {},
+  
+  Dashboard: {
+    loc: 'आपका वर्तमान स्थान',
+    searchDevices: "डिवाइस खोजें",
+    active: "सक्रिय",
+    inactive: "निष्क्रिय",
+    group1: "समूह 1",
+    group2: "समूह 2",
+    name: "नाम",
+    date: "तारीख",
+    filterOnMap: "नक्शे पर फिल्टर करें",
+    map: "नक्शा",
+    reports: "रिपोर्ट्स",
+    settings: "सेटिंग्स",
+    account: "खाता"
+  },
 
   Dashboard: {
     loc: 'आपका वर्तमान स्थान',
