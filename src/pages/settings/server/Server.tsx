@@ -1,18 +1,4 @@
-<<<<<<< Updated upstream
-import Box from '@mui/material/Box'
-const Server = () => {
-    return (
-        <>
-            <Box height={100} />
-            <div>
-                Server
-            </div>
-        </>
-    );
-}
 
-export default Server;
-=======
 import Accordion from '@mui/material/Accordion';
 import { Box, Typography, TextField, Button, FormControlLabel, Checkbox, FormGroup, Stack, MenuItem } from '@mui/material';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -371,4 +357,4 @@ export default function AccordionExpandIcon() {
         </>
     );
 }
->>>>>>> Stashed changes
+

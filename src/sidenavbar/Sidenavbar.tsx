@@ -360,7 +360,7 @@ export default function Sidenavbar() {
 
 
                 <Divider />
-                <Link to="/Announncement" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to="/ Announcement" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ListItem disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
