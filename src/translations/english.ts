@@ -18,6 +18,22 @@ const translationEN = {
   forgotPassword: {},
 
 
+  Dashboard:{
+    loc:'Your current location',
+    searchDevices:"Search Devices",
+    active:"Active",
+    inactive:"Inactive",
+    group1:"Group 1",
+    group2:"Group 2",
+    name: "Name",
+    date: "Date",
+    filterOnMap: "Filter on Map",
+    map:"Map",
+    reports: "Reports",
+    settings: "Settings",
+    account: "Account"
+  }
+
 
   Devices: {
     required: 'Required',
@@ -37,6 +53,7 @@ const translationEN = {
     title: 'Appbar Title',
     btn: 'Button Text',
     showMore: 'show more',
+
   },
 
 
@@ -229,6 +246,7 @@ const translationEN = {
   },
 
 
+
   Account: {
     required: 'Required',
     name: 'Name',
@@ -272,7 +290,6 @@ const translationEN = {
     Add: 'Add',
     CANCEL: 'CANCEL',
     SAVE: 'SAVE',
- 
-}
+
 
 export default translationEN

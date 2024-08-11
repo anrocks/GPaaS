@@ -1,213 +1,360 @@
+
 import Accordion from '@mui/material/Accordion';
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, TextField, Button, FormControlLabel, Checkbox, FormGroup, Stack, MenuItem } from '@mui/material';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import FormGroup from '@mui/material/FormGroup';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { useTranslation } from 'react-i18next';
-import Stack from '@mui/material/Stack';
-import Dropzone, { FileWithPath } from 'react-dropzone';
+import Dropzone from 'react-dropzone';
 import { useState } from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import * as style from './style'
+import { useTranslation } from 'react-i18next';
+import { useForm, Controller } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import * as style from './style.ts';
 
-const Server = () => {
+const serverSchema = z.object({
+    customMap: z.string().min(1, 'Custom map is required'),
+    customOverlay: z.string().min(1, 'Custom overlay is required'),
+    defaultMap: z.string().min(1, 'Default map is required'),
+    coordinateFormat: z.string().min(1, 'Coordinate format is required'),
+    speedUnit: z.string().min(1, 'Speed unit is required'),
+    distanceUnit: z.string().min(1, 'Distance unit is required'),
+    altitudeUnit: z.string().min(1, 'Altitude unit is required'),
+    volumeUnit: z.string().min(1, 'Volume unit is required'),
+    latitude: z.string().min(1, 'Latitude is required'),
+    longitude: z.string().min(1, 'Longitude is required'),
+    zoom: z.string().min(1, 'Zoom level is required'),
+});
+
+// Type definition for form values
+type ServerFormValues = z.infer<typeof serverSchema>;
+
+export default function AccordionExpandIcon() {
     const { t } = useTranslation();
-    const [selectedFile, setSelectedFile] = useState<FileWithPath | null>(null);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-    const handleFileDrop = (acceptedFiles: FileWithPath[]) => {
+    const handleFileDrop = (acceptedFiles: File[]) => {
         setSelectedFile(acceptedFiles[0]);
     };
 
     const handleUpload = () => {
+        if (selectedFile) {
+            console.log('Uploaded file:', selectedFile);
 
-
-        console.log(selectedFile);
-setSelectedFile(null);
+        }
+        setSelectedFile(null);
     };
+
+    const { control, handleSubmit, reset, formState: { errors } } = useForm<ServerFormValues>({
+        resolver: zodResolver(serverSchema),
+        defaultValues: {
+            customMap: '',
+            customOverlay: '',
+            defaultMap: '',
+            coordinateFormat: '',
+            speedUnit: '',
+            distanceUnit: '',
+            altitudeUnit: '',
+            volumeUnit: '',
+            latitude: '',
+            longitude: '',
+            zoom: '',
+        },
+        mode: 'onTouched',
+    });
+
+    const onSubmit = (data: ServerFormValues) => {
+        console.log('Form Data:', data);
+    };
+
+    const handleCancel = () => {
+        reset(); // Clear form fields
+    };
+
     return (
-
         <>
-            <Box height={100} />
-            <div style={{ marginBottom: '60%' }}>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
+            <Box style={{ height: '100', display: "flex", justifyContent: "center", width: "100%" }} />
 
-                        <Typography>{t('Server.preferences')}</Typography>
-
-                       
-                    </AccordionSummary>
-                    <AccordionDetails>
-
-                        <TextField fullWidth id="Custom map" sx={{ mb: 2 }}></TextField>
-                        <TextField fullWidth id="Custom Overlay" sx={{ mb: 2 }}></TextField>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            select
-                            label={t('Server.defaultMap')}
-                            sx={{ mb: 2 }}>
-                            <MenuItem value="LocationIQ Streets">{t('Server.locationIQStreets')}</MenuItem>
-                        </TextField>
-                        <TextField
-                            fullWidth
-                            id="outlined-select-currency"
-                            select
-                            label={t('Server.coordinateFormat')}
-                            sx={{ mb: 2 }}>
-                            <MenuItem value="Decimal Degrees">{t('Server.decimalDegrees')}</MenuItem>
-                        </TextField>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            select
-                            label={t('Server.speedUnit')}
-                            sx={{ mb: 2 }}>
-                            <MenuItem value="kn">{t('Server.kn')}</MenuItem>
-                        </TextField>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            select
-                            label={t('Server.distanceUnit')}
-                            sx={{ mb: 2 }} >
-                    <MenuItem value="km">Km</MenuItem>
-                           
-                        </TextField>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            select
-                            label={t('Server.altitudeUnit')}
-                            sx={{ mb: 2 }}>
-                            <MenuItem value="m">{t('Server.m')}</MenuItem>
-                        </TextField>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            select
-                            label={t('Server.volumeUnit')}
-                            sx={{ mb: 2 }}
+            <div style={{ width: "80%", maxWidth: "800px" }}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header"
                         >
-                            <MenuItem value="Liter">{t('Server.liter')}</MenuItem>
-                        </TextField>
-                        <TextField fullWidth id="Custom map" sx={{ mb: 2 }} />
-                        <TextField fullWidth id="Custom map" sx={{ mb: 2 }} />
-                        <FormControlLabel control={<Checkbox />} label={t('Server.forcesettings')} sx={{ marginRight: '70% ' }} />
-
-                    </AccordionDetails>
-
-
-                </Accordion>
-
-                <Accordion >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-
-                        <Typography>{t('Server.location')}</Typography>
-
-                      
-                    </AccordionSummary>
-                    <AccordionDetails >
-                        <TextField fullWidth label={t('Server.latitude')} id="Latitude" sx={{ mb: 2 }}
-                        />
-
-                        <TextField fullWidth label={t('Server.longitude')} id="Longitude" sx={{ mb: 2 }}
-                        />
-
-                        <TextField fullWidth label={t('Server.zoom')} id="Zomm" sx={{ mb: 2 }}
-                        />
-                    </AccordionDetails>
-                    <Button variant="outlined" sx={style.currentbutton}>{t('Server.cURRENTLOCATION')}</Button>
-                </Accordion>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-    {t('Server.permissions')}
-
-                      
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <FormGroup>
-                            <FormControlLabel control={<Checkbox />} label={t('Server.registation')} />
-                            <FormControlLabel control={<Checkbox />} label={t('Server.readonly')} />
-                            <FormControlLabel control={<Checkbox />} label={t('Server.deviceReadonly')} />
-                            <FormControlLabel control={<Checkbox />} label={t('Server.limitCommands')} />
-                            <FormControlLabel control={<Checkbox />} label={t('Server.disableReports')} />
-
-                            <FormControlLabel control={<Checkbox />} label={t('Server.noEmailChanges')} />
-
-                        </FormGroup>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-
-                        <Typography>{t('Server.file')}</Typography>
-
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Stack spacing={2}>
-                            <Dropzone onDrop={handleFileDrop}>
-                                {({ getRootProps, getInputProps }) => (
-                                    <div
-                                        {...getRootProps()}
-                                        style={{
-                                            border: '2px dashed #cccccc',
-                                            padding: '20px',
-                                            textAlign: 'center',
-                                            cursor: 'pointer',
-                                        }}
-                                    >
-                                        <input {...getInputProps()} />
-                                        <p>{t('Server.para')} </p>
-                                        <CloudUploadIcon onClick={handleUpload} />
-
-                                    </div>
+                            <Typography>{t('Server.preferences')}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Controller
+                                name="customMap"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        label={t('Server.customMap')}
+                                        {...field}
+                                        error={!!errors.customMap}
+                                        helperText={errors.customMap?.message}
+                                        sx={{ mb: 2 }}
+                                    />
                                 )}
-                            </Dropzone>
-                        </Stack>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-                        {t('Server.attributes')}
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Button variant="outlined" sx={{ p: 3, mb: 2, width: "70%", height: '10px', fontSize: '25px' }}> {t('Server.aDD')}</Button>
-                    </AccordionDetails>
-                </Accordion>
-                <div style={{ marginTop: '25px', display: 'flex', justifyContent: 'center', gap: '30%' }}>
+                            />
+                            <Controller
+                                name="customOverlay"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        label={t('Server.customOverlay')}
+                                        {...field}
+                                        error={!!errors.customOverlay}
+                                        helperText={errors.customOverlay?.message}
+                                        sx={{ mb: 2 }}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                name="defaultMap"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.defaultMap')}
+                                        {...field}
+                                        error={!!errors.defaultMap}
+                                        helperText={errors.defaultMap?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="LocationIQ Streets">{t('Server.locationIQStreets')}</MenuItem>
+                                    </TextField>
+                                )}
+                            />
+                            <Controller
+                                name="coordinateFormat"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.coordinateFormat')}
+                                        {...field}
+                                        error={!!errors.coordinateFormat}
+                                        helperText={errors.coordinateFormat?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="Decimal Degrees">{t('Server.decimalDegrees')}</MenuItem>
+                                    </TextField>
+                                )}
+                            />
+                            <Controller
+                                name="speedUnit"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.speedUnit')}
+                                        {...field}
+                                        error={!!errors.speedUnit}
+                                        helperText={errors.speedUnit?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="kn">{t('Server.kn')}</MenuItem>
+                                    </TextField>
+                                )}
+                            />
+                            <Controller
+                                name="distanceUnit"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.distanceUnit')}
+                                        {...field}
+                                        error={!!errors.distanceUnit}
+                                        helperText={errors.distanceUnit?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="km">Km</MenuItem>
+                                    </TextField>
+                                )}
+                            />
+                            <Controller
+                                name="altitudeUnit"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.altitudeUnit')}
+                                        {...field}
+                                        error={!!errors.altitudeUnit}
+                                        helperText={errors.altitudeUnit?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="m">{t('Server.m')}</MenuItem>
+                                    </TextField>
+                                )}
+                            />
+                            <Controller
+                                name="volumeUnit"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        select
+                                        label={t('Server.volumeUnit')}
+                                        {...field}
+                                        error={!!errors.volumeUnit}
+                                        helperText={errors.volumeUnit?.message}
+                                        sx={{ mb: 2 }}
+                                    >
+                                        <MenuItem value="Liter">{t('Server.liter')}</MenuItem>
+                                    </TextField>
+                                )}
+                            />
 
-                    <Button variant="outlined" style={style.cancel}> {t('Server.cANCEL')}</Button>
-                    <Button variant="contained" style={style.save}>{t('Server.sAVE')}</Button>
-                </div>
-            </div >
+                            <FormControlLabel
+                                control={<Checkbox />}
+                                label={t('Server.forcesettings')}
+                                sx={{ marginRight: '70%' }}
+                            />
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel2-content"
+                            id="panel2-header"
+                        >
+                            <Typography>{t('Server.location')}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails sx={{ padding: 2 }}>
+                            <Controller
+                                name="latitude"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        label={t('Server.latitude')}
+                                        {...field}
+                                        error={!!errors.latitude}
+                                        helperText={errors.latitude?.message}
+                                        sx={{ mb: 2 }}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                name="longitude"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        label={t('Server.longitude')}
+                                        {...field}
+                                        error={!!errors.longitude}
+                                        helperText={errors.longitude?.message}
+                                        sx={{ mb: 2 }}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                name="zoom"
+                                control={control}
+                                render={({ field }) => (
+                                    <TextField
+                                        fullWidth
+                                        label={t('Server.zoom')}
+                                        {...field}
+                                        error={!!errors.zoom}
+                                        helperText={errors.zoom?.message}
+                                        sx={{ mb: 2 }}
+                                    />
+                                )}
+                            />
+                        </AccordionDetails>
+                        <Button variant="outlined" sx={style.currentbutton}>{t('Server.cURRENTLOCATION')}</Button>
+                    </Accordion>
+
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel3-content"
+                            id="panel3-header"
+                        >
+                            <Typography>{t('Server.permissions')}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails sx={{ padding: 2 }}>
+                            <FormGroup>
+                                <FormControlLabel control={<Checkbox />} label={t('Server.registation')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Server.readonly')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Server.deviceReadonly')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Server.limitCommands')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Server.disableReports')} />
+                                <FormControlLabel control={<Checkbox />} label={t('Server.noEmailChange')} />
+                            </FormGroup>
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel4-content"
+                            id="panel4-header"
+                        >
+                            <Typography>{t('Server.file')}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails sx={{ padding: 2 }}>
+                            <Stack spacing={2}>
+                                <Dropzone onDrop={handleFileDrop} multiple={false}>
+                                    {({ getRootProps, getInputProps }) => (
+                                        <div
+                                            {...getRootProps()}
+                                            style={{
+                                                border: '2px dashed #cccccc',
+                                                padding: '20px',
+                                                textAlign: 'center',
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            <input {...getInputProps()} />
+                                            <p>{t('Server.para')}</p>
+                                            <CloudUploadIcon onClick={handleUpload} />
+                                        </div>
+                                    )}
+                                </Dropzone>
+                            </Stack>
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel5-content"
+                            id="panel5-header"
+                        >
+                            <Typography>{t('Server.attributes')}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails sx={{ padding: 2 }}>
+                            <Button variant="outlined" sx={{ p: 3, mb: 2, width: "60%", fontSize: '20px' }}>
+                                {t('Server.aDD')}
+                            </Button>
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center', gap: '30%' }}>
+                        <Button onClick={handleCancel} variant="outlined" sx={style.cancel}>{t('Server.cANCEL')}</Button>
+                        <Button type="submit" variant="contained" sx={style.save}>{t('Server.sAVE')}</Button>
+                    </Box>
+                </form>
+            </div>
+
         </>
-
-    )
+    );
 }
-export default Server
+
