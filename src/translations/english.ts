@@ -39,54 +39,6 @@ const translationEN = {
     showMore: 'show more',
   },
 
-
- 
-
-  Account: {
-    required: 'Required',
-    name: 'Name',
-    admin: 'Admin',
-    email: 'Email',
-    emailadd: 'admin@email.com',
-    password: 'Password',
-    preferences: 'Preferences',
-    phone: 'Phone',
-    defaultMap: 'Default Map',
-    locationIQStreets: 'LocationIQ Streets',
-    coordinatesFormat: 'Coordinates Format',
-    decimalDegrees: 'Decimal Degrees',
-    speedUnit: 'Speed Unit',
-    kn: 'kn',
-    distanceUnit: 'Distance Unit',
-    km: 'km',
-    altitudeUnit: 'Altitude Unit',
-    m: 'm',
-    volumeUnit: 'Volume Unit',
-    liter: 'Liter',
-    location: 'Location',
-    latitude: 'Latitude',
-    longitude: 'Longitude',
-    zoom: 'Zoom',
-    cURRENTLOCATION: 'CURRENT LOCATION',
-    permission: 'Permission',
-    expiration: 'Expiration',
-    date: '01-01-2099',
-    deviceLimit: 'Device Limit',
-    userLimit: 'User Limit',
-    disabled: 'Disabled',
-    admin1: 'Admin',
-    readonly: 'Readonly',
-    deviceReadonly: 'Device Readonly',
-    LimitCommands: 'Limit Commands',
-    DisableReports: 'Disable Reports',
-    NoEmailChange: 'No Email Change',
-    Attributes: 'Attributes',
-    ActiveMaps: 'Active Maps',
-    Add: 'Add',
-    CANCEL: 'CANCEL',
-    SAVE: 'SAVE',
-  },
-
   Notification: {
     type: 'Type of Notification',
     allDevices: 'All Devices',
@@ -101,7 +53,7 @@ const translationEN = {
     disabled: 'Disabled',
     expiration: 'Expiration',
     temporary: 'Temporary',
-  }
+  },
 
   Server: {
     preferences: 'Preferences',
@@ -165,39 +117,7 @@ const translationEN = {
     cancel: 'CANCEL',
     send: 'SEND',
   },
-  Server: {
-    preferences: 'Preferences',
-    defaultMap: 'DefaultMap',
-    locationIQStreets: 'LocationIQStreets',
-    coordinateFormat: 'CoordinateFormat',
-    decimalDegrees: 'DecimalDegrees',
-    speedUnit: 'SpeedUnit',
-    kn: 'kn',
-    distanceUnit: 'Distance Unit',
-    forcesettings: 'Forcesettings',
-    altitudeUnit: 'Altitude Unit',
-    m: 'm',
-    volumeUnit: 'Volume Unit',
-    liter: 'Liter',
-    location: 'Location',
-    latitude: 'Latitude',
-    longitude: 'Longitude',
-    zoom: 'Zoom',
-    cURRENTLOCATION: 'CURRENT LOCATION',
-    permissions: 'Permissions',
-    registation: 'Registation',
-    readonly: 'Readonly',
-    deviceReadonly: 'Device Readonly',
-    limitCommands: 'Limit Commands',
-    disableReports: 'Disable Reports',
-    noEmailChanges: 'No Email Changes',
-    file: 'File',
-    para: 'Drag and drop a file here or click',
-    attributes: 'Attributes',
-    aDD: '+ ADD',
-    cANCEL: 'CANCEL',
-    sAVE: 'SAVE',
-  },
+  
   Preference: {
     map: 'Map',
     activeMap: 'ActiveMap',
@@ -220,14 +140,6 @@ const translationEN = {
     cancel: 'CANCEL',
     save: 'SAVE',
   },
-  Announcement: {
-    required: 'Required',
-    subject: 'Subject',
-    message: 'Message',
-    cancel: 'CANCEL',
-    send: 'SEND',
-  },
-
 
   Account: {
     required: 'Required',
@@ -272,7 +184,7 @@ const translationEN = {
     Add: 'Add',
     CANCEL: 'CANCEL',
     SAVE: 'SAVE',
- 
+  },
 }
 
 export default translationEN
