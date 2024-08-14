@@ -18,6 +18,22 @@ const translationEN = {
   forgotPassword: {},
 
 
+  Dashboard:{
+    loc:'Your current location',
+    searchDevices:"Search Devices",
+    active:"Active",
+    inactive:"Inactive",
+    group1:"Group 1",
+    group2:"Group 2",
+    name: "Name",
+    date: "Date",
+    filterOnMap: "Filter on Map",
+    map:"Map",
+    reports: "Reports",
+    settings: "Settings",
+    account: "Account"
+  },
+
 
   Devices: {
     required: 'Required',
@@ -37,6 +53,7 @@ const translationEN = {
     title: 'Appbar Title',
     btn: 'Button Text',
     showMore: 'show more',
+
   },
 
   Notification: {
@@ -117,29 +134,7 @@ const translationEN = {
     cancel: 'CANCEL',
     send: 'SEND',
   },
-  
-  Preference: {
-    map: 'Map',
-    activeMap: 'ActiveMap',
-    mapOverlay: 'Map Overlay',
-    popupInfo: 'PopupInfo',
-    liveRoutes: 'Live Routes',
-    showDirection: 'Show Direction',
-    showGeofences: 'Show Geofences',
-    follow: 'Follow',
-    markersClustering: 'Markers Clustering',
-    showMapOnSelection: 'Show Map On Selection',
-    devices: 'Devices',
-    deviceTitle: 'Device Title',
-    deviceDetail: 'Device Detail',
-    notificationSound: 'Notification Sound',
-    soundEvents: 'Sound Events',
-    soundAlarms: 'Sound Alarms',
-    token: 'Token',
-    info: 'Info',
-    cancel: 'CANCEL',
-    save: 'SAVE',
-  },
+
 
   Account: {
     required: 'Required',
