@@ -43,7 +43,9 @@ const translationEN = {
     attributes: 'Attributes',
     helpertext:
       'IMEI, serial number or other id. It has to match the identifier device reports to the server.',
-  },
+     CANCEL: 'CANCEL',
+     SAVE: 'SAVE',
+    },
 
   Appbar: {
     newNotifications: 'new notifications',
@@ -180,6 +182,15 @@ const translationEN = {
     CANCEL: 'CANCEL',
     SAVE: 'SAVE',
   },
+   general: {
+    name: 'Name',
+    email: 'Email',
+    password: 'Password',
+    repeatpassword: 'Repeat Password',
+    newpassword: 'New Password',
+    confirmp: 'Confirm New Password',
+    cancel: 'Cancel',
+  }
 }
 
 export default translationEN
